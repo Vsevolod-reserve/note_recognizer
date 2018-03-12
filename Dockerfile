@@ -1,4 +1,4 @@
-FROM note-recognizer
+FROM python:2
 MAINTAINER Vsevolod-pl
 FROM python:2
 
