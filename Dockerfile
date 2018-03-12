@@ -1,17 +1,9 @@
-#FROM yandexdataschool/mlhep2017:0.5
-#MAINTAINER Vsevolod-pl
+FROM yandexdataschool/mlhep2017:0.5
+MAINTAINER Vsevolod-pl
+
 USER root
+RUN apt-get -y update && apt-get install -y curl
 
-RUN apt-get -qq update
-
-RUN apt-get install -y gcc g++ wget unzip
-RUN apt-get install -y libopenblas-dev liblapack-dev libsdl2-dev libboost-all-dev 
-
-
-USER main
-RUN /home/main/anaconda/envs/python3/bin/pip install --upgrade pip
-RUN /home/main/anaconda/envs/python3/bin/pip install --upgrade sklearn tqdm
-RUN /home/main/anaconda/envs/python3/bin/pip install --upgrade https://github.com/Theano/Theano/archive/master.zip
-RUN /home/main/anaconda/envs/python3/bin/pip install --upgrade https://github.com/Lasagne/Lasagne/archive/master.zip
-RUN /home/main/anaconda/envs/python3/bin/pip install --upgrade https://github.com/yandexdataschool/AgentNet/archive/master.zip
-#TODO py3 doom once it's no longer broken
+USER jupyter
+RUN /bin/bash -c "source activate py27 && pip install rootpy==0.8.0 root_numpy==4.3.0"
+RUN conda install -n py27 ipywidgets=4.1.0
