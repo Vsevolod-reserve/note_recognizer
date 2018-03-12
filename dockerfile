@@ -1,3 +1,5 @@
+FROM note-recognizer
+MAINTAINER Vsevolod-pl
 FROM python:2
 
 WORKDIR /usr/src/app
