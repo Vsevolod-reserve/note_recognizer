@@ -1,4 +1,4 @@
-FROM python:2
+FROM yandexdataschool/mlhep2017:0.5
 MAINTAINER Vsevolod-pl
 FROM python:2
 
